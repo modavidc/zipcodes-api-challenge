@@ -11,7 +11,7 @@ use App\Imports\ZipCodesImporter;
 use App\Imports\SettlementsTypesImporter;
 use App\Imports\SettlementsImporter;
 
-const HEADER_LINES = [1, 2];
+const HEADER_LINES = [0, 1];
 
 class Importer
 {
