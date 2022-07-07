@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('zip-codes/import/txt', ZipCodes\ImportFromTxtController::class);
 
-Route::middleware('')->get('/', function (Request $request) {
-    return $request->user();
+Route::get('/', function () {
+    return view('welcome');
 });
