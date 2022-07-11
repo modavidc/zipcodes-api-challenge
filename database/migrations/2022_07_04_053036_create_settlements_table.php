@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
 class CreateSettlementsTable extends Migration
 {
@@ -16,17 +15,18 @@ class CreateSettlementsTable extends Migration
     {
         Schema::create('settlements', function (Blueprint $table) {
             $table->id();
-            $table->integer('key_id');
+            $table->integer('key');
             $table->string('name');
             $table->string('zone_type');
-            $table->bigInteger('settlement_type_id')->unsigned();
-            $table->bigInteger('zip_code_id')->unsigned();
+            $table->integer('settlement_type_key');
+            $table->string('zip_code');
             $table->timestamps();
         });
 
         Schema::table('settlements', function ($table) {
-            $table->foreign('settlement_type_id')->references('id')->on('settlement_types');
-            $table->foreign('zip_code_id')->references('id')->on('zip_codes');
+            $table->index('key');
+            $table->index('settlement_type_key');
+            $table->index('zip_code');
         });
     }
 
@@ -37,10 +37,6 @@ class CreateSettlementsTable extends Migration
      */
     public function down()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-
         Schema::dropIfExists('settlements');
-
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

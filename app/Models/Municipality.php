@@ -3,24 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-// Core
-use App\Traits\KeyAttributeTrait;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class Municipality extends Model
 {
     use HasFactory;
-    use KeyAttributeTrait;
-
-    protected $appends = [
-        'key'
-    ];
     
     protected $hidden = [
-        'id',
-        'key_id',
-        'federal_entity_id',
+        '_id',
+        'federal_entity_key',
         'created_at',
         'updated_at',
     ];

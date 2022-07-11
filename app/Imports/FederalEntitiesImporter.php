@@ -12,8 +12,9 @@ class FederalEntitiesImporter
         foreach ($federalEntities as $federalEntity) {
             $newFederalEntity = new FederalEntity();
 
-            $newFederalEntity->key_id = intval($federalEntity['key']);
+            $newFederalEntity->key = intval($federalEntity['key']);
             $newFederalEntity->name = $federalEntity['name'];
+            $newFederalEntity->code = null;
 
             $newFederalEntity->save();
         }

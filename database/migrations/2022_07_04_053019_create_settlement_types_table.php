@@ -18,6 +18,10 @@ class CreateSettlementTypesTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+        Schema::table('settlement_types', function ($table) {
+            $table->index('name');
+        });
     }
 
     /**

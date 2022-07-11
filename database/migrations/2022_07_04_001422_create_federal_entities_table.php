@@ -15,10 +15,14 @@ class CreateFederalEntitiesTable extends Migration
     {
         Schema::create('federal_entities', function (Blueprint $table) {
             $table->id();
-            $table->integer('key_id');
+            $table->integer('key');
             $table->string('name');
             $table->integer('code')->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('federal_entities', function (Blueprint $table) {
+            $table->index('key');
         });
     }
 

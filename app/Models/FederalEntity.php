@@ -3,23 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-// Core
-use App\Traits\KeyAttributeTrait;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class FederalEntity extends Model
 {
     use HasFactory;
-    use KeyAttributeTrait;
-
-    protected $appends = [
-        'key'
-    ];
 
     protected $hidden = [
-        'id',
-        'key_id',
+        '_id',
         'created_at',
         'updated_at',
     ];

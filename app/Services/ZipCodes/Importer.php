@@ -24,7 +24,7 @@ class Importer
     public function import(UploadedFile $file)
     {
         ini_set('max_execution_time', '1500'); // 25 minutes
-        
+
         $txt = $file->getContent();
 
         foreach (explode("\n", $txt) as $key => $line) {
@@ -91,10 +91,10 @@ class Importer
     {
         $settlementUuid = $data[7] . '_' . $data[11] . '_' . $data[12];
 
-        $this->settlements[$settlementUuid]['key'] = $data[12];
+        $this->settlements[$settlementUuid]['key'] = intval($data[12]);
         $this->settlements[$settlementUuid]['name'] = $data[1];
         $this->settlements[$settlementUuid]['zone'] = $data[13];
-        $this->settlements[$settlementUuid]['settlements_type'] =  $data[2];
+        $this->settlements[$settlementUuid]['settlement_type'] =  $data[2];
         $this->settlements[$settlementUuid]['zip_code'] = $data[0];
     }
 }

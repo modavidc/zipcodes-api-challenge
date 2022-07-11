@@ -3,25 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-// Core
-use App\Traits\KeyAttributeTrait;
+use Jenssegers\Mongodb\Eloquent\Model;
  
 class Settlement extends Model
 {
     use HasFactory;
-    use KeyAttributeTrait;
-
-    protected $appends = [
-        'key'
-    ];
 
     protected $hidden = [
-        'id',
-        'key_id',
-        'settlement_type_id',
-        'zip_code_id',
+        '_id',
+        'settlement_type_key',
+        'zip_code',
         'created_at',
         'updated_at',
     ];
@@ -32,6 +23,6 @@ class Settlement extends Model
 
     public function settlement_type()
     {
-        return $this->hasOne(SettlementType::class, 'id', 'settlement_type_id');
+        return $this->hasOne(SettlementType::class, 'name', 'settlement_type_key');
     }
 }

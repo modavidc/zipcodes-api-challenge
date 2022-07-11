@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ZipCodes;
 
 use App\Http\Controllers\Controller;
+use App\Models\Settlement;
 use Illuminate\Http\Request;
 
 // Core
@@ -18,7 +19,7 @@ class GetZipCodeController extends Controller
     }
 
     public function __invoke(Request $request)
-    {        
+    {      
         $zipCode = $this->zipCodeService->getZipCode($request->zipCode);
 
         return response()->json($zipCode, 200);

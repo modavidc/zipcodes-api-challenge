@@ -18,7 +18,7 @@ class ZipCodeRepository implements ZipCodeRepositoryInterface
     public function getZipCode(String $zipCodeNumber): ZipCode
     {
         $zipCode = ZipCode::query()
-            ->whereZipCode($zipCodeNumber)
+            ->where('zip_code', $zipCodeNumber)
             ->first();
 
         if (empty($zipCode)) {

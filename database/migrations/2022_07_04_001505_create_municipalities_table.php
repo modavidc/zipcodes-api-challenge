@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
 class CreateMunicipalitiesTable extends Migration
 {
@@ -16,14 +15,15 @@ class CreateMunicipalitiesTable extends Migration
     {
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
-            $table->integer('key_id');
+            $table->integer('key');
             $table->string('name');
-            $table->bigInteger('federal_entity_id')->unsigned();
+            $table->integer('federal_entity_key');
             $table->timestamps();
         });
 
         Schema::table('municipalities', function ($table) {
-            $table->foreign('federal_entity_id')->references('id')->on('federal_entities');
+            $table->index('key');
+            $table->index('federal_entity_key');
         });
     }
 
@@ -34,10 +34,6 @@ class CreateMunicipalitiesTable extends Migration
      */
     public function down()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-
         Schema::dropIfExists('municipalities');
-
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

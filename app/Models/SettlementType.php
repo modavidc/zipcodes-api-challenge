@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class SettlementType extends Model
 {
     use HasFactory;
 
     protected $hidden = [
-        'id',
+        '_id',
         'created_at',
         'updated_at',
     ];

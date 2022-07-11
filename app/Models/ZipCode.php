@@ -3,17 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class ZipCode extends Model
 {
     use HasFactory;
 
     protected $hidden = [
-        'id',
-        'federal_entity_id',
-        'municipality_id',
-        'settlement_id',
+        '_id',
+        'federal_entity_key',
+        'municipality_key',
         'created_at',
         'updated_at',
     ];
@@ -21,21 +20,29 @@ class ZipCode extends Model
     protected $with = [
         'federal_entity',
         'settlements',
+    ];
+
+    protected $appends = [
         'municipality',
     ];
 
     public function federal_entity()
     {
-        return $this->hasOne(FederalEntity::class, 'id', 'federal_entity_id');
+        return $this->hasOne(FederalEntity::class, 'key', 'federal_entity_key');
     }
 
     public function settlements()
     {
-        return $this->hasMany(Settlement::class);
+        return $this->hasMany(Settlement::class, 'zip_code', 'zip_code');
     }
 
-    public function municipality()
+    public function getMunicipalityAttribute()
     {
-        return $this->hasOne(Municipality::class, 'id', 'municipality_id');
+        $municipality = Municipality::query()
+            ->where('key', $this->municipality_key)
+            ->where('federal_entity_key', $this->federal_entity_key)
+            ->first();
+
+        return $municipality;
     }
 }
