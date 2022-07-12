@@ -4,6 +4,11 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Validation\ValidationException;
+
+// Core 
+use App\Utils\ConstantsUtil;
+use App\Utils\ResponseJsonUtil;
 
 class Handler extends ExceptionHandler
 {
@@ -37,5 +42,38 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Throwable
+     */
+    public function render($request, Throwable $e)
+    {
+        if ($e->getCode() === ConstantsUtil::NOT_FOUND) {
+            return ResponseJsonUtil::message(
+                ConstantsUtil::FAIL,
+                ConstantsUtil::NOT_FOUND,
+                $e->getMessage()
+            );
+        }
+        if ($e instanceof ValidationException) {            
+            return ResponseJsonUtil::message(
+                ConstantsUtil::FAIL,
+                ConstantsUtil::UNPROCESSABLE_ENTITY,
+                "Los datos proporcionados no son válidos."
+            );
+        }
+
+        return ResponseJsonUtil::message(
+            ConstantsUtil::FAIL,
+            ConstantsUtil::SERVER_ERROR,
+            $e->getMessage()
+        );
     }
 }

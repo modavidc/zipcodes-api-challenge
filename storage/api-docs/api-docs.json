@@ -1,0 +1,157 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Zip Codes API",
+        "description": "Zip Codes API permite consultar todos los códigos postales, con sus respectivas entidades federales, municipios y asentamientos de México.",
+        "contact": {
+            "email": "moisesdavidaaron@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "Development"
+        }
+    ],
+    "paths": {
+        "/api/zip-codes/{zip_code}": {
+            "get": {
+                "tags": [
+                    "Códigos Postales"
+                ],
+                "summary": "Encuentra código postal por número.",
+                "description": "Devuelve un código postal.",
+                "operationId": "30ecf25232685561ac716d477873d7cd",
+                "parameters": [
+                    {
+                        "name": "zip_code",
+                        "in": "path",
+                        "description": "Código postal.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "description": "Status",
+                                            "type": "boolean"
+                                        },
+                                        "code": {
+                                            "description": "Code",
+                                            "type": "integer"
+                                        },
+                                        "data": {
+                                            "description": "Data",
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "zip_code": "20000",
+                                        "locality": "Aguascalientes",
+                                        "federal_entity": {
+                                            "name": "Aguascalientes",
+                                            "code": null,
+                                            "key": 1
+                                        },
+                                        "settlements": {
+                                            "name": "Aguascalientes Centro",
+                                            "zone_type": "Urbano",
+                                            "key": 1,
+                                            "settlement_type": {
+                                                "name": "Colonia"
+                                            }
+                                        },
+                                        "municipality": {
+                                            "name": "Aguascalientes",
+                                            "key": 1
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Código postal no encontrado."
+                    },
+                    "500": {
+                        "description": "Error de servidor interno."
+                    }
+                }
+            }
+        },
+        "/api/zip-codes/import/txt": {
+            "post": {
+                "tags": [
+                    "Códigos Postales"
+                ],
+                "summary": "Importa la base de datos desde txt.",
+                "description": "Importa códigos postales dado un txt. Este proceso puede demorar hasta 30 minutos.",
+                "operationId": "266ab191677c55e5a64ec85999d699ae",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "file": {
+                                        "description": "Archivo txt",
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Operación exitosa.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "description": "Status",
+                                            "type": "boolean"
+                                        },
+                                        "code": {
+                                            "description": "Code",
+                                            "type": "integer"
+                                        },
+                                        "message": {
+                                            "description": "Message",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "status": true,
+                                        "code": 200,
+                                        "message": "Operación exitosa."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Los datos proporcionados no son válidos."
+                    },
+                    "500": {
+                        "description": "Error de servidor interno."
+                    }
+                }
+            }
+        }
+    }
+}
