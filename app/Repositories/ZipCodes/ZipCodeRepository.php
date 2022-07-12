@@ -15,16 +15,10 @@ class ZipCodeRepository implements ZipCodeRepositoryInterface
         $this->model = $model;
     }
 
-    public function getZipCode(String $zipCodeNumber): ZipCode
+    public function getZipCode(String $zipCodeNumber): ?ZipCode
     {
-        $zipCode = ZipCode::query()
+        return ZipCode::query()
             ->whereZipCode($zipCodeNumber)
             ->first();
-
-        if (empty($zipCode)) {
-            throw new \Exception("El zip code no se encuentra en la base de datos", 404);
-        }
-
-        return $zipCode;
     }
 }

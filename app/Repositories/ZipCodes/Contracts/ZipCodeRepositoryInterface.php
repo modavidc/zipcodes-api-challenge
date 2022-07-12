@@ -7,5 +7,5 @@ use App\Models\ZipCode;
 
 interface ZipCodeRepositoryInterface
 {
-    public function getZipCode(String $zipCodeNumber): ZipCode;
+    public function getZipCode(String $zipCodeNumber): ?ZipCode;
 }

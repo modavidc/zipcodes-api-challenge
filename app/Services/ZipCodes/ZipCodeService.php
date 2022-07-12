@@ -27,6 +27,12 @@ class ZipCodeService implements ZipCodeServiceInterface
     
     public function getZipCode(String $zipCodeNumber)
     {
-        return $this->repository->getZipCode($zipCodeNumber);
+        $zipCode = $this->repository->getZipCode($zipCodeNumber);
+
+        if (empty($zipCode)) {
+            throw new \Exception("Código postal no encontrado.", 404);
+        }
+
+        return $zipCode;
     }
 }

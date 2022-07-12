@@ -14,7 +14,7 @@ class ImportFromTxtRequest extends FormRequest
     public function rules()
     {
         return [
-            'data' => 'required|mimes:txt'
+            'file' => 'required|mimes:txt'
         ];
     }
 }
