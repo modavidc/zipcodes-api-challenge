@@ -18,7 +18,7 @@ class GetZipCodeController extends Controller
     }
 
     public function __invoke(Request $request)
-    {        
+    {                
         $zipCode = $this->zipCodeService->getZipCode($request->zipCode);
 
         return response()->json($zipCode, 200);
