@@ -281,8 +281,8 @@ return [
          * Constants which can be used in annotations
          */
         'constants' => [
-            'L5_SWAGGER_CONST_HOST' => env('L5_SWAGGER_CONST_HOST', 'http://localhost:8000'),
-            'L5_SWAGGER_CONST_HOST_DESCRIPTION' => env('L5_SWAGGER_CONST_HOST_DESCRIPTION', 'Development'), 
+            'L5_SWAGGER_CONST_HOST' => env('L5_SWAGGER_CONST_HOST', 'https://mc-zipcode-api.herokuapp.com'),
+            'L5_SWAGGER_CONST_HOST_DESCRIPTION' => env('L5_SWAGGER_CONST_HOST_DESCRIPTION', 'Production'), 
         ],
     ],
 ];
