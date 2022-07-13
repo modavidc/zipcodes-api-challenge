@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Controllers\ZipCodes;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 // Core
@@ -10,8 +9,6 @@ use Tests\Mocks\ZipCodeMock;
 
 class GetZipCodeControllerTest extends TestCase
 {
-    use RefreshDatabase;
-
     /** @test */
     public function should_get_an_existing_zip_code()
     {
