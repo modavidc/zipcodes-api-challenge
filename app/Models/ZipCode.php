@@ -19,22 +19,22 @@ class ZipCode extends Model
     ];
 
     protected $with = [
-        'federal_entity',
-        'settlements',
-        'municipality',
+        'federal_entity_',
+        'settlements_',
+        'municipality_',
     ];
 
-    public function federal_entity()
+    public function federal_entity_()
     {
         return $this->hasOne(FederalEntity::class, 'id', 'federal_entity_id');
     }
 
-    public function settlements()
+    public function settlements_()
     {
         return $this->hasMany(Settlement::class);
     }
 
-    public function municipality()
+    public function municipality_()
     {
         return $this->hasOne(Municipality::class, 'id', 'municipality_id');
     }
