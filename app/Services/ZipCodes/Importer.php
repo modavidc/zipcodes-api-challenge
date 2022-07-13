@@ -56,7 +56,6 @@ class Importer
         $this->municipalities[$municipalityUuid]['federal_entity_key'] = intval($data[7]);
     }
 
-
     private function parseZipCodes(array $data): void
     {
         $this->zipCodes[$data[0]]['zip_code'] = $data[0];
