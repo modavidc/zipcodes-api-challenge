@@ -4,8 +4,10 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Illuminate\Validation\ValidationException;
 
 // Core 
 use App\Utils\ConstantsUtil;
@@ -55,12 +57,19 @@ class Handler extends ExceptionHandler
      * @throws \Throwable
      */
     public function render($request, Throwable $e)
-    {
-        if ($e instanceof ModelNotFoundException) {
+    {        
+        if ($e instanceof ModelNotFoundException || $e instanceof NotFoundHttpException) {
             return ResponseJsonUtil::message(
                 ConstantsUtil::FAIL,
                 ConstantsUtil::NOT_FOUND,
                 ConstantsUtil::NOT_FOUND_MESSAGE,
+            );
+        }
+        if ($e instanceof MethodNotAllowedHttpException) {
+            return ResponseJsonUtil::message(
+                ConstantsUtil::FAIL,
+                ConstantsUtil::METHOD_NOT_ALLOWED,
+                ConstantsUtil::METHOD_NOT_ALLOWED_MESSAGE,
             );
         }
         if ($e instanceof ValidationException) {            

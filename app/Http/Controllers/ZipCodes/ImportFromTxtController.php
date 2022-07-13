@@ -84,6 +84,6 @@ class ImportFromTxtController extends Controller
     {
         $this->zipCodeService->importFromTxt($request->file('file'));
 
-        return ResponseJsonUtil::ok('Operación exitosa.');
+        return ResponseJsonUtil::ok('Importación exitosa.');
     }
 }

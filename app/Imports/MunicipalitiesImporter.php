@@ -3,12 +3,13 @@
 namespace App\Imports;
 
 // Core
+use App\Imports\Contracts\ImportableInterface;
 use App\Models\FederalEntity;
 use App\Models\Municipality;
 
-class MunicipalitiesImporter
+class MunicipalitiesImporter implements ImportableInterface
 {
-    public static function import(array $municipalities)
+    public static function save(array $municipalities)
     {
         foreach ($municipalities as $municipality) {
             $federalEntity = FederalEntity::query()

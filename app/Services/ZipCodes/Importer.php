@@ -5,34 +5,27 @@ namespace App\Services\ZipCodes;
 use Illuminate\Http\UploadedFile;
 
 // Core
+use App\Utils\TxtUtil;
 use App\Imports\FederalEntitiesImporter;
 use App\Imports\MunicipalitiesImporter;
 use App\Imports\ZipCodesImporter;
 use App\Imports\SettlementsTypesImporter;
 use App\Imports\SettlementsImporter;
 
-const HEADER_LINES = [0, 1];
-
 class Importer
 {
-    public $federalEntities;
-    public $municipalities;
-    public $zipCodes;
-    public $settlementsTypes;
-    public $settlements;
-
     public function import(UploadedFile $file)
     {
         ini_set('max_execution_time', '1500'); // 25 minutes
-        
+
         $txt = $file->getContent();
 
         foreach (explode("\n", $txt) as $key => $line) {
-            if ($this->invalidTxtLine($key, $line)) {
+            if (TxtUtil::invalidTextLine($key, $line)) {
                 continue;
             }
 
-            $data = $this->transformToArray($line);
+            $data = TxtUtil::transformToArray($line);
 
             $this->parseFederalEntities($data);
             $this->parseMunicipalities($data);
@@ -41,25 +34,15 @@ class Importer
             $this->parseSettlements($data);
         }
 
-        FederalEntitiesImporter::import($this->federalEntities);
-        MunicipalitiesImporter::import($this->municipalities);
-        ZipCodesImporter::import($this->zipCodes);
-        SettlementsTypesImporter::import($this->settlementsTypes);
-        SettlementsImporter::import($this->settlements);
+        FederalEntitiesImporter::save($this->federalEntities);
+        MunicipalitiesImporter::save($this->municipalities);
+        ZipCodesImporter::save($this->zipCodes);
+        SettlementsTypesImporter::save($this->settlementsTypes);
+        SettlementsImporter::save($this->settlements);
     }
 
-    private function transformToArray(String $line): array {
-        $explodedLine = explode('|', utf8_encode($line));
-        $replacedLine = preg_replace("/\r|\n/", "", $explodedLine);
-
-        return $replacedLine;
-    }
-
-    private function invalidTxtLine(int $key, String $line): Bool {
-        return in_array($key, HEADER_LINES) || $line === "";
-    }
-
-    private function parseFederalEntities(array $data) {
+    private function parseFederalEntities(array $data)
+    {
         $this->federalEntities[$data[7]]['key'] = $data[7];
         $this->federalEntities[$data[7]]['name'] = $data[4];
     }
@@ -93,8 +76,8 @@ class Importer
 
         $this->settlements[$settlementUuid]['key'] = $data[12];
         $this->settlements[$settlementUuid]['name'] = $data[1];
-        $this->settlements[$settlementUuid]['zone'] = $data[13];
-        $this->settlements[$settlementUuid]['settlements_type'] =  $data[2];
+        $this->settlements[$settlementUuid]['zone_type'] = $data[13];
+        $this->settlements[$settlementUuid]['settlement_type'] =  $data[2];
         $this->settlements[$settlementUuid]['zip_code'] = $data[0];
     }
 }

@@ -28,7 +28,7 @@ class ZipCodeService implements ZipCodeServiceInterface
     public function getZipCode(String $zipCodeNumber)
     {
         $zipCode = $this->repository->getZipCode($zipCodeNumber);
-
+        
         return $zipCode;
     }
 }
