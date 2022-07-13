@@ -80,8 +80,6 @@ app
     |___ ConstantsUtil.php
 |___ Traits
     |___ KeyAttributeTrait.php
-|___ Exceptions
-    |___ Handler.php
 |___ Http
 |   |___ Controllers
 |   |   |___ ZipCodes
@@ -107,44 +105,38 @@ app
 |       |___ ZipCodeRepository.php
 |___ Models
     |___ ZipCode.php
+```
 
-#### Utils
+#### Utils: 
+Contiene utilidades generales. 
 
-Capa del aplicación que contiene utilidades generales. 
+#### Traits: 
 
-#### Traits
-
-Capa del aplicación que contiene funciones reutilizables para los modelos.
-
-#### Exceptions
-
-Capa del aplicación que se encarga del manejo de errores.
+Contiene funciones reutilizables para los modelos.
 
 #### Http 
 
-Capa del aplicación que se encarga del manejo de las peticiones HTTP. 
+Se encarga del manejo de las peticiones HTTP. 
 
 #### Services 
 
-Capa del aplicación que se encarga del manejo de la lógica de negocio. 
+Se encarga del manejo de la lógica de negocio. 
 
 #### Imports 
 
-Capa del aplicación que se encarga de la importación de los datos hacía la base de datos.
-
-Sistema de errores. 
+Se encarga de la importación de los datos.
 
 #### Cache 
 
-Capa del aplicación que se encarga del manejo de la cache. 
+Se encarga del manejo de la cache. 
 
 #### Repositories 
 
-Capa del aplicación que se encarga del acceso al origen de datos y obtener los distintos modelos de datos.
+Se encarga del acceso al origen de datos y obtener los distintos modelos de datos.
 
 #### Models 
 
-Capa del aplicación que se encarga de la interacción con la base de datos MySQL. 
+Se encarga de la interacción con la base de datos MySQL. 
 
 ## 👤 Author
 
