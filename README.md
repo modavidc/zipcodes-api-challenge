@@ -138,26 +138,26 @@ Se encarga del acceso al origen de datos y obtener los distintos modelos de dato
 
 Se encarga de la interacción con la base de datos MySQL. 
 
-## 👤 Author
+## 👤 Autor
 
 **Moisés Cedeño**
 
 -   Email: [moisesdavidaaron@gmail.com](mailto:moisesdavidaaron@gmail.com)
 -   Github: [@modavidc](https://github.com/modavidc)
 
-## 🤝 Contributing
+## 🤝 Contribuciones
 
-Contributions, issues and feature requests are welcome. Feel free to check [issues page](https://github.com/modavidc/zip-codes-api/issues) if you want to contribute.<br />
+Las contribuciones, los problemas y las solicitudes de funciones son bienvenidos. Siéntase libre de comprobar [issues page](https://github.com/modavidc/zip-codes-api/issues) si quieres contribuir.<br />
 
-## 🧑 Credits:
+## 🧑 Créditos:
 
--   [Mailbox icons created by Nikita Golubev - Flaticon](https://www.flaticon.com/free-icons/mailbox)
+-   [Íconos de buzones creados por Nikita Golubev - Flaticon](https://www.flaticon.com/free-icons/mailbox)
 
-## 📝 License
+## 📝 Licencia
 
 Copyright © 2022 [modavidc](https://github.com/modavidc).<br />
-This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
+Este proyecto es [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
 
 ---
 
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+__Este README fue generado con ❤️ por [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
