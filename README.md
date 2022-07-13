@@ -107,36 +107,21 @@ app
     |___ ZipCode.php
 ```
 
-#### Utils: 
-Contiene utilidades generales. 
+- Utils: Contiene utilidades generales. 
 
-#### Traits: 
+- Traits: Contiene funciones reutilizables para los modelos.
 
-Contiene funciones reutilizables para los modelos.
+- Http: Se encarga del manejo de las peticiones HTTP. 
 
-#### Http 
+- Services: Se encarga del manejo de la lógica de negocio. 
 
-Se encarga del manejo de las peticiones HTTP. 
+- Imports: Se encarga de la importación de los datos.
 
-#### Services 
+- Cache: Se encarga del manejo de la cache. 
 
-Se encarga del manejo de la lógica de negocio. 
+- Repositories: Se encarga del acceso al origen de datos y obtener los distintos modelos de datos.
 
-#### Imports 
-
-Se encarga de la importación de los datos.
-
-#### Cache 
-
-Se encarga del manejo de la cache. 
-
-#### Repositories 
-
-Se encarga del acceso al origen de datos y obtener los distintos modelos de datos.
-
-#### Models 
-
-Se encarga de la interacción con la base de datos MySQL. 
+- Models: Se encarga de la interacción con la base de datos MySQL. 
 
 ## 👤 Autor
 
