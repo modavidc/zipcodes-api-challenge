@@ -64,7 +64,7 @@ class Importer
         $this->federalEntities[$data[7]]['name'] = $data[4];
     }
 
-    private function parseMunicipalities(array $data)
+    private function parseMunicipalities(array $data): void
     {
         $municipalityUuid = $data[7] . '_' . $data[11];
 
@@ -74,7 +74,7 @@ class Importer
     }
 
 
-    private function parseZipCodes(array $data)
+    private function parseZipCodes(array $data): void
     {
         $this->zipCodes[$data[0]]['zip_code'] = $data[0];
         $this->zipCodes[$data[0]]['locality'] = $data[5];
@@ -82,12 +82,12 @@ class Importer
         $this->zipCodes[$data[0]]['municipality_key'] = intval($data[11]);
     }
 
-    private function parseSettlementsTypes(array $data)
+    private function parseSettlementsTypes(array $data): void
     {
         $this->settlementsTypes[$data[2]] = $data[2];
     }
 
-    private function parseSettlements(array $data)
+    private function parseSettlements(array $data): void
     {
         $settlementUuid = $data[7] . '_' . $data[11] . '_' . $data[12];
 
