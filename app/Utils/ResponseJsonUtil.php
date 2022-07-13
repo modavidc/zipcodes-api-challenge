@@ -4,6 +4,11 @@ namespace App\Utils;
 
 class ResponseJsonUtil
 {
+    public static function data(mixed $zipCode)
+    {
+        return response()->json($zipCode, ConstantsUtil::OK);
+    }
+
     public static function ok(String $message)
     {
         return response()->json([

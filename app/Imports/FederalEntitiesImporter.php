@@ -3,11 +3,12 @@
 namespace App\Imports;
 
 // Core
+use App\Imports\Contracts\ImportableInterface;
 use App\Models\FederalEntity;
 
-class FederalEntitiesImporter
+class FederalEntitiesImporter implements ImportableInterface
 {
-    public static function import(array $federalEntities)
+    public static function save(array $federalEntities)
     {
         foreach ($federalEntities as $federalEntity) {
             $newFederalEntity = new FederalEntity();

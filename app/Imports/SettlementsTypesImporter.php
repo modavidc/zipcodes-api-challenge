@@ -3,11 +3,12 @@
 namespace App\Imports;
 
 // Core
+use App\Imports\Contracts\ImportableInterface;
 use App\Models\SettlementType;
 
-class SettlementsTypesImporter
+class SettlementsTypesImporter implements ImportableInterface
 {
-    public static function import(array $settlementsTypes)
+    public static function save(array $settlementsTypes)
     {
         foreach ($settlementsTypes as $settlementType) {
             $newSettlementType = new SettlementType();

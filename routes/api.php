@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +12,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::post('zip-codes/import/txt', ZipCodes\ImportFromTxtController::class);
-Route::get('zip-codes/{zip_code}', ZipCodes\GetZipCodeController::class);
+Route::get('zip-codes/{zip_code}', ZipCodes\GetZipCodeController::class)->where('zip_code', '[0-9]+');

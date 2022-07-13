@@ -3,12 +3,13 @@
 namespace App\Imports;
 
 // Core
+use App\Imports\Contracts\ImportableInterface;
 use App\Models\Municipality;
 use App\Models\ZipCode;
 
-class ZipCodesImporter
+class ZipCodesImporter implements ImportableInterface
 {
-    public  static function import(array $zipCodes)
+    public static function save(array $zipCodes)
     {
         foreach ($zipCodes as $zipCode) {
             $municipality = Municipality::query()
