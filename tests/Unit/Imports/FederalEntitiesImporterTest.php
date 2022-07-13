@@ -3,7 +3,6 @@
 namespace Tests\Unit\Imports;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use ErrorException;
 
 // Core
@@ -12,8 +11,6 @@ use Tests\Mocks\FederalEntitiesMock;
 
 class FederalEntitiesImporterTest extends TestCase
 {
-    use RefreshDatabase;
-
     /** @test */
     public function should_save_in_the_database_data_an_federal_entities_array()
     {

@@ -2,17 +2,13 @@
 
 namespace Tests\Feature\Controllers\ZipCodes;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use Illuminate\Http\UploadedFile;
 
 // Core
 use Tests\Mocks\ZipCodesFileMock;
 
 class ImportFromTxtControllerTest extends TestCase
 {
-    use RefreshDatabase;
-
     /** @test */
     public function should_import_zip_codes_from_a_txt()
     {
