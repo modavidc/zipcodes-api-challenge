@@ -80,8 +80,6 @@ app
     |___ ConstantsUtil.php
 |___ Traits
     |___ KeyAttributeTrait.php
-|___ Exceptions
-    |___ Handler.php
 |___ Http
 |   |___ Controllers
 |   |   |___ ZipCodes
@@ -107,65 +105,44 @@ app
 |       |___ ZipCodeRepository.php
 |___ Models
     |___ ZipCode.php
+```
 
-#### Utils
+- Utils: Contiene utilidades generales. 
 
-Capa del aplicación que contiene utilidades generales. 
+- Traits: Contiene funciones reutilizables para los modelos.
 
-#### Traits
+- Http: Se encarga del manejo de las peticiones HTTP. 
 
-Capa del aplicación que contiene funciones reutilizables para los modelos.
+- Services: Se encarga del manejo de la lógica de negocio. 
 
-#### Exceptions
+- Imports: Se encarga de la importación de los datos.
 
-Capa del aplicación que se encarga del manejo de errores.
+- Cache: Se encarga del manejo de la cache. 
 
-#### Http 
+- Repositories: Se encarga del acceso al origen de datos y obtener los distintos modelos de datos.
 
-Capa del aplicación que se encarga del manejo de las peticiones HTTP. 
+- Models: Se encarga de la interacción con la base de datos MySQL. 
 
-#### Services 
-
-Capa del aplicación que se encarga del manejo de la lógica de negocio. 
-
-#### Imports 
-
-Capa del aplicación que se encarga de la importación de los datos hacía la base de datos.
-
-Sistema de errores. 
-
-#### Cache 
-
-Capa del aplicación que se encarga del manejo de la cache. 
-
-#### Repositories 
-
-Capa del aplicación que se encarga del acceso al origen de datos y obtener los distintos modelos de datos.
-
-#### Models 
-
-Capa del aplicación que se encarga de la interacción con la base de datos MySQL. 
-
-## 👤 Author
+## 👤 Autor
 
 **Moisés Cedeño**
 
 -   Email: [moisesdavidaaron@gmail.com](mailto:moisesdavidaaron@gmail.com)
 -   Github: [@modavidc](https://github.com/modavidc)
 
-## 🤝 Contributing
+## 🤝 Contribuciones
 
-Contributions, issues and feature requests are welcome. Feel free to check [issues page](https://github.com/modavidc/zip-codes-api/issues) if you want to contribute.<br />
+Las contribuciones, los problemas y las solicitudes de funciones son bienvenidos. Siéntase libre de comprobar [issues page](https://github.com/modavidc/zip-codes-api/issues) si quieres contribuir.<br />
 
-## 🧑 Credits:
+## 🧑 Créditos:
 
--   [Mailbox icons created by Nikita Golubev - Flaticon](https://www.flaticon.com/free-icons/mailbox)
+-   [Íconos de buzones creados por Nikita Golubev - Flaticon](https://www.flaticon.com/free-icons/mailbox)
 
-## 📝 License
+## 📝 Licencia
 
 Copyright © 2022 [modavidc](https://github.com/modavidc).<br />
-This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
+Este proyecto es [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
 
 ---
 
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+__Este README fue generado con ❤️ por [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
