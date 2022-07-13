@@ -3,10 +3,11 @@
 namespace App\Repositories\ZipCodes;
 
 // Core
+use App\Repositories\BaseRepository;
 use App\Repositories\ZipCodes\Contracts\ZipCodeRepositoryInterface;
 use App\Models\ZipCode;
 
-class ZipCodeRepository implements ZipCodeRepositoryInterface
+class ZipCodeRepository extends BaseRepository implements ZipCodeRepositoryInterface
 {
     protected $model;
 
@@ -15,10 +16,10 @@ class ZipCodeRepository implements ZipCodeRepositoryInterface
         $this->model = $model;
     }
 
-    public function getZipCode(String $zipCodeNumber): ?ZipCode
+    public function getZipCode(String $zipCodeNumber)
     {
         return ZipCode::query()
             ->whereZipCode($zipCodeNumber)
-            ->first();
+            ->firstOrFail();
     }
 }

@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 // Core 
 use App\Utils\ConstantsUtil;
@@ -55,18 +56,18 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $e)
     {
-        if ($e->getCode() === ConstantsUtil::NOT_FOUND) {
+        if ($e instanceof ModelNotFoundException) {
             return ResponseJsonUtil::message(
                 ConstantsUtil::FAIL,
                 ConstantsUtil::NOT_FOUND,
-                $e->getMessage()
+                ConstantsUtil::NOT_FOUND_MESSAGE,
             );
         }
         if ($e instanceof ValidationException) {            
             return ResponseJsonUtil::message(
                 ConstantsUtil::FAIL,
                 ConstantsUtil::UNPROCESSABLE_ENTITY,
-                "Los datos proporcionados no son válidos."
+                ConstantsUtil::UNPROCESSABLE_ENTITY_MESSAGE
             );
         }
 
