@@ -27,13 +27,7 @@ class ZipCodeService implements ZipCodeServiceInterface
     
     public function getZipCode(String $zipCodeNumber)
     {
-        $startTime = microtime(true);
-
         $zipCode = $this->repository->getZipCode($zipCodeNumber);
-
-        $endTime = microtime(true);
-
-        dump($startTime-$endTime);
 
         return $zipCode;
     }

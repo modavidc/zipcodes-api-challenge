@@ -14,8 +14,6 @@ class ZipCodeCache extends BaseCache implements ZipCodeRepositoryInterface
     public function getZipCode(String $zipCodeNumber)
     {        
         return $this->cache::remember("$this->key.$zipCodeNumber", self::TTL, function() use ($zipCodeNumber) {
-            dump("cacheando ");
-
             return $this->repository->getZipCode($zipCodeNumber);
         });
     }
