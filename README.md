@@ -30,14 +30,14 @@
 <br />
 <br />
 Echa un vistazo, juega y diviértete con esto.
-<a href="https://github.com/modavidc/zip-codes-api/stargazers">Las estrellas son bienvenidas 😊</a>
+<a href="https://github.com/modavidc/zipcodes-api-challenge/stargazers">Las estrellas son bienvenidas 😊</a>
 <br />
 <br />
 <a href="https://mc-zipcode-api.herokuapp.com">Ver demostración</a>
 ·
-<a href="https://github.com/modavidc/zip-codes-api/issues">Reportar un error</a>
+<a href="https://github.com/modavidc/zipcodes-api-challenge/issues">Reportar un error</a>
 ·
-<a href="https://github.com/modavidc/zip-codes-api/issues">Solicitar una característica</a>
+<a href="https://github.com/modavidc/zipcodes-api-challenge/issues">Solicitar una característica</a>
 
 </p>
 
@@ -46,8 +46,8 @@ Echa un vistazo, juega y diviértete con esto.
 ### 🐳 Herramientas necesarias
 
 1. [Instalar Docker](https://www.docker.com/get-started)
-2. Clonar este proyecto: `git clone https://github.com/modavidc/zip-codes-api`
-3. Moverse a la carpeta del proyecto: `cd zip-codes-api`
+2. Clonar este proyecto: `git clone https://github.com/modavidc/zipcodes-api-challenge`
+3. Moverse a la carpeta del proyecto: `cd zipcodes-api-challenge`
 
 ### 🛠️ Configuración del entorno
 
@@ -132,7 +132,7 @@ app
 
 ## 🤝 Contribuciones
 
-Las contribuciones, los problemas y las solicitudes de funciones son bienvenidos. Siéntase libre de comprobar [issues page](https://github.com/modavidc/zip-codes-api/issues) si quieres contribuir.<br />
+Las contribuciones, los problemas y las solicitudes de funciones son bienvenidos. Siéntase libre de comprobar [issues page](https://github.com/modavidc/zipcodes-api-challenge/issues) si quieres contribuir.<br />
 
 ## 🧑 Créditos:
 
